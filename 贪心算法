@@ -1,0 +1,14 @@
+bool isSubsequence(char * s, char * t) {
+	int s_size = strlen(s);
+	if (s_size == 0)return true;
+	int t_size = strlen(t);
+	char*temp = t;
+	for (int i = 0; i<s_size; i++)
+	{
+		char *point = strchr(temp, s[i]);
+		if (point == NULL)return false;
+		int pos = point - t;
+		temp = t + pos + 1;
+	}
+	return true;
+}
